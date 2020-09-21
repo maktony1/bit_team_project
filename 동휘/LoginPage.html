@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>LoginPage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v8.0&appId=253789402477033&autoLogAppEvents=1" nonce="6WkVrFTM"></script>
+    <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <link rel="stylesheet" href="CSS\LoginPage.css">
+
+
+</head>
+
+
+
+
+<body>
+    <!--header-->
+    <header>
+    </header>
+
+    <!--login form-->
+    <div class="container">
+        <!--로고사진-->
+         <div class="logo">
+            <a href="#"><img src="C:\Users\ssell\OneDrive\바탕 화면\project\picture\logo150.png"/></a>
+        </div>
+        
+
+                
+            <form class="form-horizontal" action="/action_page.php">
+                <!--id,pw 입력-->               
+                <div class="form-group form-group-lg" style="padding-top:10px; padding-bottom:7px;">
+                  <div class="col-md-4 aaa align-self-auto" >
+                    <input type="text" class="form-control" id="ID" placeholder="ID" name="ID">
+                  </div>
+                </div>
+                
+                <div class="form-group form-group-lg" style="padding-bottom:7px;">
+                  <div class=" col-md-4 aaa align-self-auto">          
+                    <input type="password" class="form-control" id="pwd" placeholder="Password" name="pwd">
+                  </div>
+                </div>
+                
+                <!--로그인버튼-->
+                <div class="form-group">        
+                  <div class=" col-md-4 aaa align-self-auto">
+                    <button type="submit" class="btn btn-custom btn-block btn-lg">로그인</button>
+                  </div>
+                </div>
+                
+                <!--구분선-->
+                <hr class="col-md-5" width="50%">
+                
+                <!--id,pw찾기버튼 & 회원가입버튼-->
+                <div width="50%" class="form-center" > 
+                   <a href="#"><b>ID/PW찾기</b></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    |
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#"><b>회원가입</b></a>  
+                </div>
+
+            </form>
+                
+                <!-- 네이버아이디로로그인 버튼 노출 영역 -->
+                <div id="naverIdLogin"></div>
+                <!-- //네이버아이디로로그인 버튼 노출 영역 -->
+
+                <!-- 네이버아디디로로그인 초기화 Script -->
+                <script type="text/javascript">
+                    var naverLogin = new naver.LoginWithNaverId(
+                        {
+                            clientId: "dge7CpG1Qo2Oov20L6NV",
+                            callbackUrl: "http://localhost:8282/restfull/resources/Callback.html",
+                            isPopup: false, /* 팝업을 통한 연동처리 여부 */
+                            loginButton: {color: "green", type: 3, height: 45 , width: 240} /* 로그인 버튼의 타입을 지정 */
+                        }
+                    );
+
+                    /* 설정정보를 초기화하고 연동을 준비 */
+                    naverLogin.init();
+        		</script>
+
+           <!--페이스북로그인 버튼 노출영억-->
+           <div class="facebookbtn">
+                <div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width="240px" data-height="50px">
+                </div>
+            </div>
+
+            <div id="status">
+            </div>
+            
+        <!--페이스북로그인 script-->
+            <script>
+                function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+                console.log('statusChangeCallback');
+                console.log(response);                   // The current login status of the person.
+                if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+                  testAPI();  
+                } else {                                 // Not logged into your webpage or we are unable to tell.
+                }
+              }
+
+
+              function checkLoginState() {               // Called when a person is finished with the Login Button.
+                FB.getLoginStatus(function(response) {   // See the onlogin handler
+                  statusChangeCallback(response);
+                });
+              }
+
+
+              window.fbAsyncInit = function() {
+                FB.init({
+                  appId      : '253789402477033',
+                  cookie     : true,                     // Enable cookies to allow the server to access the session.
+                  xfbml      : true,                     // Parse social plugins on this webpage.
+                  version    : 'v8.0'           // Use this Graph API version for this call.
+                });
+
+
+                FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+                  statusChangeCallback(response);        // Returns the login status.
+                });
+              };
+
+              function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', function(response) {
+                  console.log('Successful login for: ' + response.name);
+                  document.getElementById('status').innerHTML =
+                    'Thanks for logging in, ' + response.name + '!';
+                });
+              } 
+                
+        </script>        
+
+       <div class="kakaobtn">
+            <a id="kakao-login-btn" href="javascript:loginWithKakao()">
+              <img
+                src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
+                width="240" height="45"/>
+            </a>
+        </div>
+        
+        <script type="text/javascript">
+          function loginWithKakao() {
+            Kakao.init('3791ebca9ab23cd8a51a5dbccfdb596a');
+            Kakao.Auth.createLoginButton({
+                container: '#kakao-login-btn',
+                success: function(authObj) {
+                    alert(JSON.stringify(authObj))
+                },
+                fail: function(err) {
+                    alert(JSON.stringify(err))
+              },
+            })
+          }
+        </script>
+        
+    </div>
+    
+    <footer style="font-size:12px; color:black;">
+        <nav style="padding-top: 50px; margin-left:15px;">
+            <a href="#">회사소개 </a>| &nbsp;
+            <a href="#">이용약관 </a> |&nbsp;
+            <a href="#">운영정책 </a> |&nbsp;
+            <a href="#">여행지등록 </a>|&nbsp;
+            <a href="#">고객센터 </a>
+
+        </nav>
+        <hr>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="span8" style="margin-left:10px;">
+                    <a href="#"><b>개인정보처리방침</b> </a>
+                    |
+                    <a href="#">청소년보호방침</a>
+                </div>
+                <div class="span4">
+                    <p class="muted pull-right"> © 2020 RestFuLL. All rights reserved</p>
+                </div>
+            </div>
+        </div>
+     </footer>
+
+</body>
+
+
+</html>
