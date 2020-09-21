@@ -12,125 +12,8 @@
     <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v8.0&appId=253789402477033&autoLogAppEvents=1" nonce="6WkVrFTM"></script>
     <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-    <link rel="stylesheet" href="indexpage.css">
+    <link rel="stylesheet" href="CSS\LoginPage.css">
 
-
-
-    <style type="text/css">
-
-        header {
-            width:100%;
-            height:50px;
-        }
-      
-        h1 {
-            font-size:50px;
-            color:#8A93C0;
-            text-align:center;
-            margin-bottom:25px;
-        }
-        
-        .aaa {
-            margin-top: auto;
-            margin-bottom: auto;
-            float: none;
-            margin: 0 auto;
-            vertical-align: center;
-        }
-        
-        .form-control {
-            padding-bottom:10px;
-        }
-        
-        .btn-custom {
-          background-color: hsl(237, 34%, 70%) !important;
-          background-repeat: repeat-x;
-          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#989bcc", endColorstr="#989bcc");
-          background-image: -khtml-gradient(linear, left top, left bottom, from(#8A93C0), to(#8A93C0));
-          background-image: -moz-linear-gradient(top, #8A93C0, #8A93C0);
-          background-image: -ms-linear-gradient(top, #8A93C0, #8A93C0);
-          background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8A93C0), color-stop(100%, #8A93C0));
-          background-image: -webkit-linear-gradient(top, #8A93C0, #8A93C0);
-          background-image: -o-linear-gradient(top, #8A93C0, #8A93C0);
-          background-image: linear-gradient(#8A93C0, #8A93C0);
-          border-color: #8A93C0 #8A93C0 hsl(237, 34%, 70%);
-          color: white; !important;
-          
-          -webkit-font-smoothing: antialiased;
-        }
-
-        
-        .form-center a:link {
-            color: #8A93C0;
-            text-decoration:none;
-        }
-
-        .form-center a:visited {
-            color: #8A93C0;
-            text-decoration: none;
-        }
-
-        .form-center a:hover {
-            color: black;
-            text-decoration: none;
-        }
-        
-        .form-center{
-            text-align: center;
-            font-size:17px;
-            color:#8A93C0;
-            
-        }
-        #naverIdLogin {
-            align-self: auto;
-            text-align: center;
-            margin-top:30px;
-            
-        }
-        .logo {
-            float: none;
-            text-align:center;
-            height:150px;
-            margin-bottom: 30px;
-        }
-        .facebookbtn {
-            align-self: auto;
-            text-align: center;
-            margin-top:5px;
-        }
-        .kakaobtn {
-            align-self: auto;
-            text-align: center;
-            margin-top:5px;
-        }
-        
-        footer {
-            width:100%;
-            height:200px;
-            margin-top: 50px;
-            background-color: #cccccc;  
-        }
-        .span4 {
-            float:right;
-            padding-right:10px;
-        }
-
-        a:link {
-            color: white;
-            text-decoration:none;
-        }
-
-        a:visited {
-            color: white;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: black;
-            text-decoration: none;
-        }
-
-    </style>
 
 </head>
 
@@ -194,7 +77,7 @@
                     var naverLogin = new naver.LoginWithNaverId(
                         {
                             clientId: "dge7CpG1Qo2Oov20L6NV",
-                            callbackUrl: "http://58.234.208.168:8282/naver/Callback.html",
+                            callbackUrl: "http://localhost:8282/restfull/resources/Callback.html",
                             isPopup: false, /* 팝업을 통한 연동처리 여부 */
                             loginButton: {color: "green", type: 3, height: 45 , width: 240} /* 로그인 버튼의 타입을 지정 */
                         }
@@ -202,11 +85,7 @@
 
                     /* 설정정보를 초기화하고 연동을 준비 */
                     naverLogin.init();
-                </script>
-                
-            
-                
-                        
+        		</script>
 
            <!--페이스북로그인 버튼 노출영억-->
            <div class="facebookbtn">
@@ -286,20 +165,20 @@
         
     </div>
     
-    <footer style="opacity:0.9; font-size:15px; color:white;">
-        <nav style="padding-top: 50px; margin-left:10px;">
-            <a href="#"><b>회사소개 </b></a>
-            <a href="#"><b>이용약관 </b></a>
-            <a href="#"><b>운영정책 </b></a>
-            <a href="#"><b>여행지등록 </b></a>
-            <a href="#"><b>고객센터 </b></a>
+    <footer style="font-size:12px; color:black;">
+        <nav style="padding-top: 50px; margin-left:15px;">
+            <a href="#">회사소개 </a>| &nbsp;
+            <a href="#">이용약관 </a> |&nbsp;
+            <a href="#">운영정책 </a> |&nbsp;
+            <a href="#">여행지등록 </a>|&nbsp;
+            <a href="#">고객센터 </a>
 
         </nav>
         <hr>
         <div class="row-fluid">
             <div class="span12">
                 <div class="span8" style="margin-left:10px;">
-                    <a href="#">개인정보처리방침 </a>
+                    <a href="#"><b>개인정보처리방침</b> </a>
                     |
                     <a href="#">청소년보호방침</a>
                 </div>
@@ -311,5 +190,6 @@
      </footer>
 
 </body>
+
 
 </html>

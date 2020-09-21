@@ -21,8 +21,8 @@
 		var naverLogin = new naver.LoginWithNaverId(
 			{
 				clientId: "dge7CpG1Qo2Oov20L6NV",
-				callbackUrl: "http://58.234.208.168:8282/naver/MainPage.html",
-				isPopup: false,
+				callbackUrl: "http://localhost:8282/restfull/resources/Callback.html",
+				isPopup: false, 
 				callbackHandle: true
 				/* callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback처리를 해줄수 있도록 설정합니다. */
 			}
@@ -44,7 +44,7 @@
 						return;
 					}
 
-					window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/naver/MainPage.html");
+					window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/restfull/resources/MainPage.html");
 				} else {
 					console.log("callback 처리에 실패하였습니다.");
 				}
@@ -54,16 +54,3 @@
 </body>
 
 </html>
-
-
-
-
-<!--                     <form action="/action_page.php" method="get">
-                            <div class="form-row">
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="지역입력" id="txtSearch">   
-                                </div>
-                                <button class="btn btn-link" type="submit"><i class="fas fa-search"></i></button>
-                            </div>
-
-                        </form>-->
