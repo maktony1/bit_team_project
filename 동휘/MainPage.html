@@ -19,12 +19,14 @@
 
 
 <body>
-<div class="containerr">
+<div class="index-container">
 
    <header>
        <div class="wrapper">
             <div class="logo">
-                <a href="#"><img class="logo" src="picture/LOGOsmall.png" /></a>
+                <a href="#">
+                    <img class="logo" src="picture/LOGOsmall.png" />
+                </a>
             </div>
             <nav>
             <ul class="menu">
@@ -45,27 +47,36 @@
             </nav>
         </div>
     </header>
-    
-    <div style="padding-top: 200px" class="col-xs-2 col-md-7 aaa align-self-auto">
-        <h3><strong>어느 지역</strong><b>으로 여행을 가시나요?</b></h3>
+    <div class="">
 
-        <!-- 검색창 -->
-        <form action="/hms/accommodations" method="GET">
-            <div class="row">
-                <div class="aaa col-xs-2 col-md-7">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="지역입력" id="txtSearch">
-                        <button class="searchicon" type="submit"><i class="fas fa-search"></i></button>
+        <div style="padding-top: 200px" class="col-xs-2 col-md-7 search-bar align-self-auto">
+            <h3><strong>어느 지역</strong><b>으로 여행을 가시나요?</b></h3>
+
+            <!-- 검색창 -->
+            <form action="/hms/accommodations" method="GET">
+                <div class="row">
+                    <div class="search-bar col-xs-2 col-md-7">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="지역입력" id="txtSearch">
+                            <button class="searchicon" type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+
                     </div>
-
                 </div>
+            </form>
+        </div>
+
+        <!--메인페이지사진-->
+<!--
+        <div style="width: 1000px; height: 500px">
+            <div class="box_img_wrap" style="background-image: url(picture/mainpage.png)">
             </div>
-        </form>
-    </div>
-    
-    <!--메인페이지사진-->
-    <div id="mainimg">
-        <img src="picture/mainpage.png" style="padding-top: 50px; width:1000px; height:500px ;">
+        </div>
+-->
+        <div class="mainimg">
+            <img src="picture/mainpage.png" alt="흠..">
+        </div>
+        
     </div>
 </div>
     <footer style="opacity:0.9; font-size:15px; color:white;">
