@@ -7,7 +7,7 @@
     <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RestFuLL | 로그인</title>
+    <title>RestFuLL | 회원가입</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <!-- Page Preloder -->
+     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
@@ -64,6 +64,7 @@
                         <li><a href="#">공지사항</a></li>
                         <li><a href="#">이벤트</a></li>
                         <li><a href="#">자주하는질문</a></li>
+                        
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>
@@ -78,8 +79,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 offset-lg-4">
-                    <div class="login-form">
-                        <h2>Login</h2>
+                    <div class="register-form">
+                        <h2>Register</h2>
                         <form action="#">
                             <div class="group-input">
                                 <label for="username">아이디</label>
@@ -89,28 +90,33 @@
                                 <label for="pass">비밀번호</label>
                                 <input type="text" id="pass">
                             </div>
-                            <div class="group-input gi-check">
-                                <div class="gi-more">
-                                    <label for="save-pass">
-                                        아이디 저장
-                                        <input type="checkbox" id="save-pass">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <a href="#" class="forget-pass">ID/ PW 찾기</a>
-                                </div>
+                            <div class="group-input">
+                                <label for="con-pass">비밀번호 재확인</label>
+                                <input type="text" id="con-pass">
                             </div>
-                            <button type="submit" class="site-btn login-btn">로그인</button>
+                             <div class="group-input">
+                                <label for="con-pass">이름</label>
+                                <input type="text" id="con-pass">
+                            </div>
+                            <div class="group-input">
+                                <label for="con-pass">이메일</label>
+                                <input type="text" id="con-pass">
+                            </div>
+                            
+                            
+                            <button type="submit" class="site-btn register-btn">REGISTER</button>
                         </form>
-                        <div class="switch-login">
-                            <a href="./register.html" class="or-login">회원가입</a>
-                        </div>
+                        
+<!--                        <div class="switch-login">
+                            <a href="./login.html" class="or-login">Or Login</a>
+                        </div>-->
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Register Form Section End -->
-
+    
 
     <!-- Footer Section Begin -->
     <footer class="footer-section">

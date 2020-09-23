@@ -7,7 +7,7 @@
     <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fashi | Template</title>
+    <title>RestFuLL | 메인페이지</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 </head>
 
 <body>
@@ -43,12 +45,47 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-8 col-md-7 search-top">
+                    <div class="col-lg- col-md-7 search-top">
                         <div class="advanced-search">
-                            <button type="button" class="category-btn">지역 선택 </button>
                             <div class="input-group">
-                                <input type="text" placeholder="어느 지역으로 여행을 가시나요?">
+                                <input type="text" id="city" placeholder="어느 지역으로 여행을 가시나요?">
                                 <button type="button"><i class="ti-search"></i></button>
+                                
+                                <script>
+                                $(function(){
+
+                                    var availableCity = [
+                                                '서울',
+                                                '인천',
+                                                '대전',
+                                                '광주',
+                                                '부산',
+                                                '울산',
+                                                '대구',
+                                                '제주도'
+                                        ];
+                                    
+                                        $("#city").autocomplete({
+
+                                            source: availableCity,
+
+                                            select: function(event, ui) {
+                                                console.log(ui.item);
+                                            },
+
+                                            focus: function(event, ui) {
+                                                return false;
+                                                //event.preventDefault();
+                                            }
+                                        });
+                                    });
+
+
+                                
+                                </script>
+                                
+                                
+                                
                             </div>
                         </div>
                     </div>
@@ -65,7 +102,7 @@
                         <li><a href="#">공지사항</a></li>
                         <li><a href="#">이벤트</a></li>
                         <li><a href="#">자주하는질문</a></li>
-                        <li><a href="#">로그인</a></li>
+                        
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>
@@ -179,6 +216,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> 2020 
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
 </body>
 
 </html>
