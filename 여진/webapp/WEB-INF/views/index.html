@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MainPage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="indexpage.css">
+    <link rel="shortcut icon" href="favicon.ico" type="project/picture">
+    
+
+    <style type="text/css">
+        ul, li {
+            list-style:none;
+        }
+        /* header*/
+        
+        header {
+            width:100%;
+            height:80px;
+            position: fixed;
+            z-index:9999;
+            left:0; top:0;
+            background-color: white;
+        }
+        
+        .logo {
+            float: left;
+            
+        }
+        
+        .wrapper {
+            width:1170px; 
+            margin:0 auto;
+        }
+        
+        .menu {
+            list-style-type:none;
+            float:right;
+            font-size:17px;
+        }
+        
+        .menu li {
+            float:left;
+        }
+        
+        .menu a {
+            line-height:75px;
+            color:#8A93C0;
+            padding: 0 15px;
+            display:block;
+        }
+        
+        .menu a:link {
+            color: #8A93C0;
+            text-decoration:none;
+        }
+
+         .menu a:visited {
+            color: #8A93C0;
+            text-decoration: none;
+        }
+
+         .menu a:hover {
+            color: black;
+            text-decoration: none;
+        }
+        
+        .dropdown {
+            position:relative;
+            display:inline-block;
+        }
+        
+        .dropbtn {
+            background-color:white;
+            line-height:75px;
+            color:#8A93C0;
+            padding:0 15px;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color:ghostwhite;
+            min-width: 150px;
+            z-index: 1;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+          
+        }
+        .dropdown-content a {
+            color: #8A93C0;
+            padding: 5px 20px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: ghostwhite;
+            
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover .dropbtn {
+            background-color: ghostwhite;
+        }
+
+        strong {
+            color:#8A93C0;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        .form-control {
+            align-items: center;
+            text-align: center;
+
+        }
+        
+        .aaa {
+            margin-top: auto;
+            margin-bottom: auto;
+            float: none;
+            margin: 0 auto;
+            vertical-align: center;
+        }
+
+        #mainimg {
+            text-align: center;
+        }
+        
+        .input-group {
+            align-items: center;
+            text-align: center;
+        }
+        .fas {
+            padding:9px ;
+            color:white;
+        }
+        .searchicon {
+            background-color: #8A93C0;
+            border-bottom-right-radius:10px;
+            border-top-right-radius:10px;
+            border-bottom-style:none;
+            border-right-style:none;
+
+            border-color:#8A93C0;
+            
+            
+        }
+        
+        a:link {
+            color: white;
+            text-decoration:none;
+        }
+
+        a:visited {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: black;
+            text-decoration: none;
+        }
+
+        footer {
+            width:100%;
+            height:200px;
+            margin-top: 50px;
+            background-color: #c3c3c3;  
+        }
+        .span4 {
+            float:right;
+            padding-right:10px;
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+   <header style="border-bottom-style: solid; border-bottom-color: #8A93C0; ">
+       <div class="wrapper">
+            <div class="logo">
+                <a href="#"><img src="/resources/logo_s.png"/></a>
+            </div>
+            <nav>
+            <ul class="menu">
+                 <li><a href="#"> <b>글작성하기</b></a></li>
+                 <li><a href="#"> <b>여행코스짜기</b></a></li>
+                 <div class="dropdown">
+                     <button class="dropbtn">
+                       더보기
+                     </button>
+                     <div class="dropdown-content">
+                         <a href="#">공지사항</a>
+                         <a href="#">이벤트</a>
+                         <a href="#">자주하는질문</a>
+                     </div>
+                 </div>
+                 <li><a href="LoginPage.html"> <b>로그인</b></a></li>
+            </ul> 
+            </nav>
+        </div>
+    </header>
+    
+    <div style="padding-top: 200px" class="col-xs-2 col-md-7 aaa align-self-auto">
+        <h3><strong>어느 지역</strong><b>으로 여행을 가시나요?</b></h3>
+
+        <!-- 검색창 -->
+        <form action="/searchResult" method="GET">
+            <div class="row">
+                <div class="aaa col-xs-2 col-md-7">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="지역 입력" id="txtSearch">
+                        <button class="searchicon" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <!--메인페이지사진-->
+    <div id="mainimg">
+        <img src="/resources/indexPhoto.png" style="padding-top: 50px; width:1000px; height:500px ;">
+    </div>
+
+    <footer style="opacity:0.9; font-size:15px; color:white;">
+        <nav style="padding-top: 50px; margin-left:10px;">
+            <a href="#"><b>회사소개 </b></a>
+            <a href="#"><b>이용약관 </b></a>
+            <a href="#"><b>운영정책 </b></a>
+            <a href="#"><b>여행지등록 </b></a>
+            <a href="#"><b>고객센터 </b></a>
+
+        </nav>
+        <hr>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="span8" style="margin-left:10px;">
+                    <a href="#">개인정보처리방침 </a>
+                    |
+                    <a href="#">청소년보호방침</a>
+                </div>
+                <div class="span4">
+                    <p class="muted pull-right"> © 2020 RestFuLL. All rights reserved</p>
+                </div>
+            </div>
+        </div>
+     </footer>
+
+
+
+</body>
+
+</html>
