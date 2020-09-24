@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bit.project.restfull.mapper.BoardMapper">
+	
+	<resultMap id="Location" type="bit.project.restfull.vo.LocationVO" >
+		<id property="board_count" column="board_count"/>
+		<result property="address" column="address"/>
+		<result property="details" column="details"/>
+		<result property="lat" column="lat"/>
+		<result property="lng" column="lng"/>
+	</resultMap>
+	
+	<resultMap id="BoardContents" type="bit.project.restfull.vo.BoardContentsVO">
+		<id property="board_count" column="board_count"/>	
+		<result property="title" column="title"/>
+		<result property="hit" column="hit"/>
+		<result property="dates" column="dates"/>
+		<association property="location" javaType="bit.project.restfull.vo.LocationVO" resultMap="Location"/>
+	</resultMap>
+
+  	<select id="getContents" parameterType="String" resultMap="BoardContents">
+	<![CDATA[
+		SELECT *
+		FROM BOARD B, LOCATION L 
+		WHERE B.BOARD_COUNT=L.BOARD_COUNT
+		AND L.ADDRESS LIKE '%'||#{searchWord}||'%'
+	]]>
+	</select>
+	
+
+ 	<select id="getList" resultType="bit.project.restfull.vo.BoardVO">
+	<![CDATA[
+		SELECT * from board
+	
+	]]>
+	</select>
+	<select id="getLocList" resultType="bit.project.restfull.vo.LocationVO">
+	<![CDATA[
+		select * from location where address like '%'||#{searchWord}||'%'
+	]]>
+	</select>
+
+</mapper>
