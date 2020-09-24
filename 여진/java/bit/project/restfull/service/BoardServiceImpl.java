@@ -23,21 +23,27 @@ public class BoardServiceImpl implements BoardService{
 	private BoardMapper mapper;	
 	
 	@Override
-	public List<LocationVO> getLocList(String searchWord) {
-		log.info("boardServicImpl-getLocList: " + searchWord);
-		return mapper.getLocList(searchWord);
+	public List<BoardContentsVO> getList(int boardlist_numbers, String searchWord) {
+		log.info("boardServicImpl-getList(게시글 목록 호출): " + searchWord);
+		return mapper.getList(boardlist_numbers, searchWord);
 	}
 
 	@Override
-	public List<BoardVO> getList(String searchWord) {
-		log.info("boardServicImpl-getList: " + searchWord);
-		return mapper.getList(searchWord);
+	public BoardVO getBoardVO(String board_count) {
+		log.info("boardServicImpl-getBoardVO(게시글 호출): " + board_count);
+		return mapper.getBoardVO(board_count);
 	}
 
 	@Override
-	public List<BoardContentsVO> getContents(String searchWord) {
-		log.info("boardServicImpl-getContents: " + searchWord);
-		return mapper.getContents(searchWord);
+	public void writeBoardContentsVO(String title, String content, LocationVO location) {
+		log.info("boardServicImpl-writeBoardContentsVO(게시글 작성): 제목은 " + title);
+		mapper.writeBoardContentsVO(title, content);
+		mapper.writeBoardLocationVO(location);
+	}
+
+	@Override
+	public void writeBoardContentsVO2(LocationVO location) {
+		mapper.writeBoardLocationVO(location);
 	}
 
 }

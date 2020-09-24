@@ -20,26 +20,35 @@
 		<association property="location" javaType="bit.project.restfull.vo.LocationVO" resultMap="Location"/>
 	</resultMap>
 
-  	<select id="getContents" parameterType="String" resultMap="BoardContents">
+	<!-- 메인 게시글 게시판 그룹 번호가 1이라고 했을때, 메인 게시글 전체를 불러오는 쿼리 -->
+  	<select id="getList" resultMap="BoardContents">
 	<![CDATA[
 		SELECT *
 		FROM BOARD B, LOCATION L 
 		WHERE B.BOARD_COUNT=L.BOARD_COUNT
-		AND L.ADDRESS LIKE '%'||#{searchWord}||'%'
+			AND BOARDLIST_NUMBERS = #{boardlist_numbers}
+			AND L.ADDRESS LIKE '%'||#{searchWord}||'%'
 	]]>
 	</select>
 	
-
- 	<select id="getList" resultType="bit.project.restfull.vo.BoardVO">
+  	<insert id="writeBoardContentsVO" >
 	<![CDATA[
-		SELECT * from board
+		INSERT INTO BOARD (BOARD_COUNT, TITLE, CONTENTS, HIT, DATES) VALUES (BOARD_SEQ.NEXTVAL, #{title}, #{contents}, 0, sysdate)
+	]]>
+	</insert>
 	
-	]]>
-	</select>
-	<select id="getLocList" resultType="bit.project.restfull.vo.LocationVO">
+	<insert id="writeBoardLocationVO" parameterType="bit.project.restfull.vo.LocationVO">
+	<selectKey keyProperty="board_count" order="BEFORE" resultType="int">
+		SELECT BOARD_SEQ.CURRVAL AS BOARD_COUNT FROM DUAL
+	</selectKey>
 	<![CDATA[
-		select * from location where address like '%'||#{searchWord}||'%'
+		INSERT INTO LOCATION (BOARD_COUNT, ADDRESS, DETAILS, LAT, LNG) VALUES (#{board_count}, #{address}, #{details}, #{lat}, #{lng})
+	]]>
+	</insert>
+
+ 	<select id="getBoardVO" resultType="bit.project.restfull.vo.BoardVO">
+	<![CDATA[
+		SELECT * from board where board_count = #{board_count}
 	]]>
 	</select>
-
 </mapper>

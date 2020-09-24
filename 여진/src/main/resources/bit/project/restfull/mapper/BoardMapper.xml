@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bit.project.restfull.mapper.BoardMapper">
+	
+	<resultMap id="Location" type="bit.project.restfull.vo.LocationVO" >
+		<id property="board_count" column="board_count"/>
+		<result property="address" column="address"/>
+		<result property="details" column="details"/>
+		<result property="lat" column="lat"/>
+		<result property="lng" column="lng"/>
+	</resultMap>
+	
+	<resultMap id="BoardContents" type="bit.project.restfull.vo.BoardContentsVO">
+		<id property="board_count" column="board_count"/>	
+		<result property="title" column="title"/>
+		<result property="hit" column="hit"/>
+		<result property="dates" column="dates"/>
+		<association property="location" javaType="bit.project.restfull.vo.LocationVO" resultMap="Location"/>
+	</resultMap>
+
+	<!-- 메인 게시글 게시판 그룹 번호가 1이라고 했을때, 메인 게시글 전체를 불러오는 쿼리 -->
+  	<select id="getList" resultMap="BoardContents">
+	<![CDATA[
+		SELECT *
+		FROM BOARD B, LOCATION L 
+		WHERE B.BOARD_COUNT=L.BOARD_COUNT
+			AND BOARDLIST_NUMBERS = #{boardlist_numbers}
+			AND L.ADDRESS LIKE '%'||#{searchWord}||'%'
+	]]>
+	</select>
+	
+  	<insert id="writeBoardContentsVO" >
+	<![CDATA[
+		INSERT INTO BOARD (BOARD_COUNT, TITLE, CONTENTS, HIT, DATES) VALUES (BOARD_SEQ.NEXTVAL, #{title}, #{contents}, 0, sysdate)
+	]]>
+	</insert>
+	
+	<insert id="writeBoardLocationVO" parameterType="bit.project.restfull.vo.LocationVO">
+	<selectKey keyProperty="board_count" order="BEFORE" resultType="int">
+		SELECT BOARD_SEQ.CURRVAL AS BOARD_COUNT FROM DUAL
+	</selectKey>
+	<![CDATA[
+		INSERT INTO LOCATION (BOARD_COUNT, ADDRESS, DETAILS, LAT, LNG) VALUES (#{board_count}, #{address}, #{details}, #{lat}, #{lng})
+	]]>
+	</insert>
+
+ 	<select id="getBoardVO" resultType="bit.project.restfull.vo.BoardVO">
+	<![CDATA[
+		SELECT * from board where board_count = #{board_count}
+	]]>
+	</select>
+</mapper>
