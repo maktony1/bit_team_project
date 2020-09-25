@@ -1,0 +1,306 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Fashi Template">
+    <meta name="keywords" content="Fashi, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RestFuLL | 로그인</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/themify-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+     <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="header-top">
+            <div class="container">
+                <div class="ht-right">
+                <button type="button" class="login-panel">
+                 <a href="./rs-loginpage.jsp">로그인</a>  
+                 </button>
+                </div>
+            </div>
+         </div>
+ 
+        <div class="container">
+                <div class="inner-header">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2">
+                            <div class="logo">
+                                <a href="./rs-mainpage.jsp">
+                                    <img src="img/LOGOsmall.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-7 search-top">
+                            <div class="advanced-search">
+                                <div class="input-group">
+                                    <input type="text" placeholder="어느 지역으로 여행을 가시나요?">
+                                    <button type="button"><i class="ti-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="nav-item">
+            <div class="container">
+                <nav class="nav-menu mobile-menu">
+                    <ul>
+                        <li class="active"><a href="./rs-mainpage.jsp">Home</a></li>
+                        <li><a href="${pageContext.request.contextPath}/write_view">글작성</a></li>
+                        <li><a href="#">여행코스작성</a></li>
+                        <li><a href="./rs-Servicecenter.jsp">공지사항</a></li>
+                        <li><a href="#">이벤트</a></li>
+                        <li><a href="./rs-Servicecenter_faq.jsp">자주하는질문</a></li>
+                        <!--<li><a href="#">로그인</a></li>-->
+                    </ul>
+                </nav>
+                <div id="mobile-menu-wrap"></div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Register Section Begin -->
+    <div class="register-login-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 offset-lg-4">
+                    <div class="login-form">
+                        <h2>Login</h2>
+                        <form action="#">
+                            <div class="group-input">
+                                <label for="username">아이디</label>
+                                <input type="text" id="username">
+                            </div>
+                            <div class="group-input">
+                                <label for="pass">비밀번호</label>
+                                <input type="text" id="pass">
+                            </div>
+                            <div class="group-input gi-check">
+                                <div class="gi-more">
+                                    <label for="save-pass">
+                                       		 아이디 저장
+                                        <input type="checkbox" id="save-pass">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <a href="#" class="forget-pass">ID/ PW 찾기</a>
+                                </div>
+                            </div>
+                            <button type="submit" class="site-btn login-btn">로그인</button>
+                        </form>
+                        <div class="switch-login">
+                            <a href="./rs-registerConfirm.jsp" class="or-login">회원가입</a>
+                        </div>
+                        
+                        </div>
+                        <!-- 네이버아이디로로그인 버튼 노출 영역 -->
+                        <div id="naverIdLogin"></div>
+                        <!-- //네이버아이디로로그인 버튼 노출 영역 -->
+
+                        <!-- 네이버아디디로로그인 초기화 Script -->
+                        <script type="text/javascript">
+                            var naverLogin = new naver.LoginWithNaverId(
+                                {
+                                    clientId: "dge7CpG1Qo2Oov20L6NV",
+                                    callbackUrl: "http://localhost:8282/./Callback.html",
+                                    isPopup: false, /* 팝업을 통한 연동처리 여부 */
+                                    loginButton: {color: "green", type: 3, height: 45 , width: 240} /* 로그인 버튼의 타입을 지정 */
+                                }
+                            );
+
+                            /* 설정정보를 초기화하고 연동을 준비 */
+                            naverLogin.init();
+                        </script>
+                   
+                        <!--페이스북로그인 버튼 노출영억-->
+                       <div class="facebookbtn">
+                            <div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width="240px" data-height="50px">
+                            </div>
+                        </div>
+                        <div id="status"></div>
+                        <!--페이스북로그인 script-end-->
+                        
+                        <!--페이스북로그인 script-start-->
+                        <script>
+                                function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+                                console.log('statusChangeCallback');
+                                console.log(response);                   // The current login status of the person.
+                                if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+                                  testAPI();  
+                                } else {                                 // Not logged into your webpage or we are unable to tell.
+                                }
+                              }
+
+
+                              function checkLoginState() {               // Called when a person is finished with the Login Button.
+                                FB.getLoginStatus(function(response) {   // See the onlogin handler
+                                  statusChangeCallback(response);
+                                });
+                              }
+
+
+                              window.fbAsyncInit = function() {
+                                FB.init({
+                                  appId      : '253789402477033',
+                                  cookie     : true,                     // Enable cookies to allow the server to access the session.
+                                  xfbml      : true,                     // Parse social plugins on this webpage.
+                                  version    : 'v8.0'           // Use this Graph API version for this call.
+                                });
+
+
+                                FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+                                  statusChangeCallback(response);        // Returns the login status.
+                                });
+                              };
+
+                              function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+                                console.log('Welcome!  Fetching your information.... ');
+                                FB.api('/me', function(response) {
+                                  console.log('Successful login for: ' + response.name);
+                                  document.getElementById('status').innerHTML =
+                                    'Thanks for logging in, ' + response.name + '!';
+                                });
+                              } 
+
+                        </script> 
+                    
+                        <!--카카오톡 로그인 버튼 노출영역 start-->
+                        <div class="kakaobtn">
+                            <a id="kakao-login-btn" href="javascript:loginWithKakao()">
+                              <img
+                                src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
+                                width="240" height="45"/>
+                            </a>
+                        </div>
+                         <!--카카오톡 로그인 버튼 노출영역 end-->
+
+                         <!--카카오톡 로그인 script start-->
+                        <script type="text/javascript">
+                          function loginWithKakao() {
+                            Kakao.init('3791ebca9ab23cd8a51a5dbccfdb596a');
+                            Kakao.Auth.createLoginButton({
+                                container: '#kakao-login-btn',
+                                success: function(authObj) {
+                                    alert(JSON.stringify(authObj))
+                                },
+                                fail: function(err) {
+                                    alert(JSON.stringify(err))
+                              },
+                            })
+                          }
+                        </script>
+                        <!--카카오톡 로그인 script end-->
+                   
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Register Form Section End -->
+
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-1">
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-left">
+                        <div class="footer-logo">
+                            <a href="#"><img src="img/LOGOsmall.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Address: 60-49 Road 11378 New York</li>
+                            <li>Phone: +65 11.188.888</li>
+                            <li>Email: hello.colorlib@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <div class="footer-widget">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="./rs-comapnyinfo.jsp">회사소개</a></li>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">여행지등록</a></li>
+                            <li><a href="./rs-Servicecenter.jsp">고객센터</a></li>
+                            <li><a href="./rs-Servicecenter_personal.jsp"><b>개인정보처리방침</b></a></li>
+                            <li><a href="#">위치기반서비스이용약관</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="newslatter-item">
+                        <h5>새로운 소식 받기</h5>
+                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <form action="#" class="subscribe-form">
+                            <input type="text" placeholder="Enter Your Mail">
+                            <button type="button">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-reserved">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright-text">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>
+                                document.write(new Date().getFullYear());
+                            </script> 2020 RestFuLL. All rights reserved.
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </div>
+                        <div class="payment-pic">
+                            <img src="img/payment-method.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <script src="js/jquery.dd.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v8.0&appId=253789402477033&autoLogAppEvents=1" nonce="6WkVrFTM"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+</body>
+
+</html>
