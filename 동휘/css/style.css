@@ -268,11 +268,67 @@ ol {
   Header
 -----------------------*/
 
+.header-top {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	
+}
+
+.header-top .ht-right {
+	float: right;
+    padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.header-top .ht-right .login-panel{
+	float: right;
+	font-size: 14px;
+	background-color:#8a93c0;
+	display: inline-block;
+	padding-left: 10px;
+    padding-right: 10px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+    border-style:none;
+}
+.header-top .ht-right .login-panel button {
+   
+}
+.header-top .ht-right .login-panel a {
+    color:white;
+}
+
+/*.header-top .ht-right .login-panel i {
+	margin-right: 8px;
+}
+
+.header-top .ht-right .lan-selector {
+	float: right;
+	margin-top: 15px;
+	margin-bottom: 13px;
+}
+
+.header-top .ht-right .top-social {
+	float: right;
+	padding-right: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-right: 1px solid #e5e5e5;
+}
+
+.header-top .ht-right .top-social a {
+	color: #252525;
+	font-size: 14px;
+	display: inline-block;
+	margin-left: 15px;
+}*/
 
  .inner-header {
-	padding: 40px 0;
-     padding-top: 0;
+	padding-bottom:30px;
 } 
+
+.
 
 .inner-header .logo a {
 	display: inline-block;
@@ -281,47 +337,13 @@ ol {
 
 .inner-header .advanced-search {
 	height: 50px;
-    width: auto;
 	border: 1px solid #ebebeb;
    
-    
 }
 
-.inner-header .advanced-search .category-btn {
-	max-width: 30%;
-	float: left;
-	background: transparent;
-	border: none;
-	padding-left: 25px;
-	padding-top: 11px;
-	padding-bottom: 13px;
-	padding-right: 50px;
-	font-size: 16px	color: #252525;
-	position: relative;
-}
-
-.inner-header .advanced-search .category-btn:before {
-	position: absolute;
-	right: 0;
-	top: 14px;
-	width: 1px;
-	height: 20px;
-	background: #e5e5e5;
-	content: "";
-}
-
-.inner-header .advanced-search .category-btn:after {
-	position: absolute;
-	right: 11px;
-	top: 10px;
-	content: "3";
-	font-family: "ElegantIcons";
-	font-size: 16px;
-	color: #b2b2b2;
-}
 
 .inner-header .advanced-search .input-group {
-	max-width: 80%;
+	max-width: 100%;
 	height: 100%;
 }
 
@@ -394,9 +416,6 @@ ol {
 	background: #546396;
 }
 
-
-
-
 .slicknav_menu {
 	display: none;
 }
@@ -406,7 +425,7 @@ ol {
 -----------------------*/
 
 .hero-items .single-hero-items {
-	height: 700px;
+	height: 800px;
     width:100%;
     padding-top: 100px;
 }
@@ -613,6 +632,13 @@ ol {
 .footer-section {
 	background: #313540;
 	padding-top: 50px;
+    width:100%;
+    height:100px;
+    position:absolute;
+    bottom:0;
+    background:#5eaeff;
+    text-align: center;
+    
 }
 
 .footer-left {
@@ -772,7 +798,7 @@ ol {
 	position: absolute;
 	right: -18px;
 	top: 0px;
-	content: "�꼨";
+	content: "▶";
 	font-family: "FontAwesome";
 	font-size: 16px;
 	color: #b2b2b2;
@@ -2803,7 +2829,7 @@ ol {
 
 .faq-accordin .card-heading a:after,
 .faq-accordin .card-heading>a.active[aria-expanded=false]:after {
-	content: "�겎";
+	content: "▼";
 	font-family: "FontAwesome";
 	font-size: 14px;
 	color: #404040;
@@ -2820,12 +2846,12 @@ ol {
 
 .faq-accordin .card-heading a[aria-expanded=true]:after,
 .faq-accordin .card-heading>a.active:after {
-	content: "�겏";
+	content: "▼";
 	font-family: "FontAwesome";
 	float: left;
 	font-size: 13px;
 	color: #ffffff;
-	background: #e7ab3c;
+	background: #8a93c0;
 }
 
 /*---------------------
@@ -2833,27 +2859,29 @@ ol {
 -----------------------*/
 
 .register-login-section {
-	padding-top: 72px;
-	padding-bottom: 80px;
+	padding-top: 100px;
+	padding-bottom: 150px;
 }
 
 .register-form h2,
 .login-form h2 {
 	color: #252525;
-	font-weight: 700;
+	font-weight: 750;
 	text-align: center;
 	margin-bottom: 35px;
 }
 
-.register-form form .group-input,
 .login-form form .group-input {
 	margin-bottom: 25px;
+}
+.register-form form .group-input {
+    margin-bottom: 10px;
 }
 
 .register-form form .group-input label,
 .login-form form .group-input label {
 	display: block;
-	font-size: 18px;
+	font-size: 15px;
 	color: #252525;
 	margin-bottom: 13px;
 }
@@ -2861,7 +2889,7 @@ ol {
 .register-form form .group-input input,
 .login-form form .group-input input {
 	border: 1px solid #ebebeb;
-	height: 50px;
+	height: 40px;
 	width: 100%;
 	padding-left: 20px;
 	padding-right: 15px;
@@ -2874,12 +2902,15 @@ ol {
 	width: 100%;
 	letter-spacing: 2px;
 	margin-top: 5px;
+    background-color:#8a93c0;
+    border-color:#8a93c0;
 }
 
 .register-form .switch-login,
 .login-form .switch-login {
 	text-align: center;
-	margin-top: 22px;
+	margin:22px 0;
+    
 }
 
 .register-form .switch-login .or-login,
@@ -3180,7 +3211,7 @@ ol {
 		margin-left: 0;
 	}
 	.nav-item .nav-depart .depart-btn {
-		padding: 14px 50px 14px 18px;
+		padding: 14px 39px 14px 18px;
 	}
 	.nav-item {
 		background: transparent;
@@ -3192,10 +3223,9 @@ ol {
 		display: block;
 		background: transparent;
 		text-align: center;
-		margin-top: -48px;
-	}
+    }
 	.slicknav_nav {
-		background: #333;
+		background: #8a93c0;
 	}
 	.slicknav_nav ul {
 		margin: 0;
@@ -3213,22 +3243,22 @@ ol {
 	}
 	.slicknav_btn {
 		border-radius: 0;
-		background-color: #e7ab3c;
+		background-color: #8a93c0;
 		display: inline-block;
-		right: -16px;
+		
 	}
 	.slicknav_nav .slicknav_row,
 	.slicknav_nav a {
-		padding: 8px 15px;
+		padding: 7px;
 	}
 	.slicknav_nav a:hover {
 		border-radius: 0;
-		background: #e7ab3c;
+		background:  #8a93c0;
 		color: #fff;
 	}
 	.slicknav_nav .slicknav_row:hover {
 		border-radius: 0;
-		background: #e7ab3c;
+		background:  #8a93c0;
 		color: #fff;
 	}
 	.inner-header .nav-right li.cart-icon .cart-hover {

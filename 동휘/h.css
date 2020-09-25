@@ -1,0 +1,504 @@
+@charset "utf-8";
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
+fieldset,img{border:0 none}
+dl,ul,ol,menu,li{list-style:none}
+blockquote, q{quotes:none}
+blockquote:before, blockquote:after,q:before, q:after{content:'';content:none}
+input,select,textarea,button{vertical-align:middle}
+input::-ms-clear{display:none}
+button{border:0 none;background-color:transparent;cursor:pointer}
+body{background:#1e1e1e;word-wrap:break-word;word-break:keep-all}
+body,th,td,input,select,textarea,button{font-size:16px;line-height:1.5;font-family:'NotoSans Light','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif;color:#666}
+a{color:#333;text-decoration:none}
+a:active, a:hover{text-decoration:underline}
+a:active{background-color:transparent}
+address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+body:lang(ja) {font-family:-apple-system,BlinkMacSystemFont,"Noto Sans Japanese","ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","Helvetica Neue",Arial,Meiryo,sans-serif;word-break:normal} /* 일문 폰트 */ /* 2019-12-03 수정 */ /* 2018-05-03 추가 */
+
+/* global */
+#kakaoIndex{overflow:hidden;position:absolute;left:-9999px;width:0;height:1px;margin:0;padding:0}
+.ir_pm{display:block;overflow:hidden;font-size:1px;line-height:0;text-indent:-9999px}
+.ir_wa{display:block;overflow:hidden;position:relative;width:100%;height:100%;z-index:-1}
+.screen_out{overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px}
+.caption_hide{overflow:hidden;width:1px;height:0.1px;font-size:0px;line-height:0;text-indent:-9999px}
+.show{display:block}
+.hide{display:none}
+.clear_g{display:block;overflow:visible;width:auto;clear:both;*zoom:1}
+.clear_g:after{display:block;visibility:hidden;height:0;font-size:0;clear:both;content:''}
+
+/* 공통 */
+.img_thumb{display:block;vertical-align:top}
+.ico_corp{display:inline-block;overflow:hidden;font-size:0;line-height:0;background:url(//t1.kakaocdn.net/kakaocorp/pw/policy/ico_corp_190326.png) no-repeat;text-indent:-9999px;vertical-align:top}/* 2019-03-25 수정 */
+.loss_word{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-break:break-all} /* 1줄 말줄임 */
+.emph_g{font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif;color:#1e1e1e}
+.link_g{color:#3c64e6}
+
+/* layout */
+#kakaoWrap{position:relative;min-width:1280px;background-color:#fff}
+#kakaoHead{border-bottom:1px solid #e5e5e5}/* 2019-04-11 수정 */
+#mArticle{overflow:hidden;position:relative;max-width:1160px;margin:0 auto;padding-bottom:180px}/* 2019-04-11 수정 */
+
+/* header */
+.wrap_head{max-width:1160px;height:60px;margin:0 auto;text-align:center}
+.wrap_head .tit_logo{float:left}
+.wrap_head .link_kakao{display:block;overflow:hidden;width:66px;height:60px}
+.wrap_head .tit_service{display:block;overflow:hidden;height:20px;;background:url(img/LOGOsmall.png) no-repeat 0 0;text-indent:-9999px}
+.list_lang{float:right;margin-top:17px}
+.list_lang li{float:left;margin-left:15px}
+.list_lang li .link_lang{font-size:14px;color:#666}
+.list_lang li.on .link_lang, .list_lang li .link_lang:hover, .list_lang li .link_lang:focus{color:#1e1e1e;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif;text-decoration:none}
+
+/* foot */
+.foot_kakao .wrap_copyright{background-color:#1e1e1e}
+.foot_kakao .inner_copyright{position:relative;max-width:1160px;height:78px;margin:0 auto;padding-top:22px}
+.foot_kakao .info_copyright{float:left}
+.foot_kakao .dlnk_info{margin-right:8px;font-size:12px;color:#aeaeae;text-decoration:none}
+.foot_kakao .dlnk_info:hover{text-decoration:underline;color:#fff}
+.foot_kakao .dlnk_info .dlnk_txt{color:#fff}
+.foot_kakao .ico_new{width:11px;height:11px;margin:6px 0 0 3px;background-position:-40px -20px}
+.foot_kakao .dlnk_kakao:hover{border-color:#1e1e1e}
+.foot_kakao .txt_copyright{display:block;padding-top:2px;font-size:12px;color:#aeaeae;clear:both;content:'';}
+.foot_kakao .link_kakao{color:#aeaeae}
+.foot_kakao .link_kakao:hover{text-decoration:underline}
+.info_svc{float:left;position:relative;margin-right:12px}
+.info_svc .list_relation{display:none;position:absolute;bottom:29px;left:0;padding:11px 0;border:1px solid #d4d4d4;background-color:#fff}
+.info_svc .list_relation .link_relation{display:block;color:#666;padding:0 14px;font-size:12px;line-height:30px;white-space:nowrap}
+.info_svc .link_relation .ico_new{margin-top:8px}
+
+/* 관련사이트 */
+.relation_svc{float:right;position:relative;margin-top:-3px}
+.relation_svc .tit_relation{display:block;width:160px}
+.relation_svc .link_tit{display:block;height:29px;border-bottom:1px solid #4d4d4d;font-weight:normal;font-size:12px;line-height:30px;color:#aeaeae;text-decoration:none}
+.relation_svc .link_tit .ico_arr{float:right;width:10px;height:9px;margin-top:10px;background-position:-20px -20px}
+.relation_svc .box_opt{display:none;overflow:hidden;position:absolute;bottom:40px;left:0;width:158px;padding:4px 0;border:1px solid #e6e6e6;border-bottom:0 none;background-color:#fff}
+.relation_svc .inner_opt{overflow:hidden;max-height:264px;margin:3px 0}
+.relation_svc .list_relation{display:none;position:absolute;bottom:29px;right:0;width:158px;padding:11px 0;border:1px solid #d4d4d4;background-color:#fff}
+.relation_svc .list_relation .link_relation{display:block;color:#666;padding-left:14px;font-size:12px;line-height:30px}
+.relation_svc .list_relation .link_relation:hover{color:#1e1e1e}
+.relation_open .list_relation{display:block}
+.relation_open .link_tit{border-color:#fff;color:#fff}
+.relation_open .link_tit .ico_arr{width:7px;height:7px;background-position:-30px -20px}
+.link_top{position:absolute;right:60px}
+.link_top .ico_top{width:21px;height:30px;background-position:-80px 0}
+
+/* 탭메뉴 */
+.tab_policy{overflow:hidden;height:50px;padding-top:40px}/* 2019-03-25 수정 */
+.tab_policy + .txt_article{padding-top:40px}
+.tab_policy li{position:relative;display:table;float:left;width:165px;height:48px;margin-right:-1px;border:1px solid #d4d4d4;text-align:center;line-height:48px}
+.tab_policy .lst{width:162px}
+.tab_policy .link_policy{display:table-cell;color:#666;font-size:14px;line-height:20px;vertical-align:middle}
+.tab_policy .link_policy:hover{color:#1e1e1e;font-weight:bold;text-decoration:underline}
+.tab_policy .on{z-index:1;border-color:#1e1e1e} /* 2018-07-24 추가 */
+.tab_policy .on .link_policy{position:relative;color:#fff;background-color:#1e1e1e;border:1px solid #1e1e1e;z-index:99}
+html:lang(en) .tab_policy .link_policy{font-size:13px} /* 2020-03-05 추가 */
+html:lang(ja) .tab_policy li{width:231px} /* 2020-02-28 수정 (en 삭제) */
+html:lang(ja) .tab_policy .lst{width:230px} /* 2020-02-28 수정 (en 삭제) */
+/* 2018-07-24 추가 시작 */
+.tab_policy2{padding-top:96px}
+.tab_policy2 li{width:578px}/* 2018-11-30 수정 */
+.tab_policy2 li:first-child{width:579px}/* 2018-11-30 수정 */
+html:lang(en) .tab_policy2 li, html:lang(ja) .tab_policy2 li{width:578px}/* 2018-11-30_v2 수정 */
+html:lang(en) .tab_policy2 li:first-child, html:lang(ja) .tab_policy2 li:first-child{width:579px}/* 2018-11-30_v2 수정 */
+/* 2018-07-24 추가 끝 */
+/* 2018-03-25 추가 시작 */
+.tab_policy3{padding-top:96px}
+.tab_policy3 li{width:385px}
+html:lang(en) .tab_policy3 li, html:lang(ja) .tab_policy3 li{width:385px}/* 2019-06-26 추가 */
+.policy_separate .tab_policy3 + .tbl_comm{margin-top:60px}
+/* 2018-03-25 추가 끝 */
+
+
+/* 가로탭 */
+.wrap_tab{position:relative;padding-top:96px}/* 2019-03-25 수정 */
+.wrap_tab .list_tab{overflow:hidden}
+.wrap_tab .list_tab li{float:left;margin-right:38px}
+.wrap_tab .list_tab .link_tab{display:block;font-size:20px;line-height:30px;color:#666;text-decoration:none}
+.wrap_tab .list_tab .on .link_tab, .wrap_tab .list_tab .link_tab:hover{border-bottom:1px solid #4d4d4d;font-weight:bold;color:#1e1e1e}
+/* 2019-03-25 추가 시작 */
+.wrap_tab .rel_tab{position:absolute;top:96px;right:0}
+.rel_tab .link_other{display:inline-block;padding:4px 0 0 5px;vertical-align:top;text-decoration:none}
+.rel_tab .link_other .ico_corp{width:11px;height:6px;margin:7px 0 0 7px;background-position:-55px -30px}
+.layer_on .link_other .ico_corp{background-position:-55px -20px}
+.rel_tab .tit_rel{display:block;font-weight:normal}
+.rel_tab .list_rel{display:none;position:absolute;top:34px;right:0;padding:10px 0 11px;border:1px solid #d4d4d4;background:#fff;letter-spacing:-0.025em}/* 2019-03-25 수정 */
+.layer_on .list_rel{display:block}
+.rel_tab .list_rel li{padding:0 19px}
+.rel_tab .list_rel li + li{margin-top:11px}
+.rel_tab .list_rel .link_rel{display:inline-block;font-size:14px;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif;color:#1e1e1e;vertical-align:top}
+.rel_tab .list_rel .txt_rel{display:block;margin-top:2px;font-size:12px;line-height:18px;white-space:nowrap}/* 2019-03-25 수정 */
+/* 2019-03-25 추가 끝 */
+
+/* 세로탭 */
+.list_vertical{float:left;width:260px;padding-top:74px}
+.list_vertical.tab_fix{position:fixed;top:116px;padding-top:0}
+.list_vertical li{margin-bottom:18px}
+.list_vertical .link_tab{line-height:26px;color:#1e1e1e;text-decoration:none;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif}
+.list_vertical .on .link_tab, .list_vertical .link_tab:hover{border-bottom:1px solid #4d4d4d;font-weight:bold}
+
+/* 검색창 */
+.sch_comm{width:500px;margin:0 auto;padding-top:11px;border-bottom:1px solid #1e1e1e}
+.sch_comm .sch_form{position:relative}
+.sch_comm .lab_sch{position:absolute;top:10px;left:0;color:#919191}
+.sch_comm .inp_keyword{float:left;width:466px;height:42px;border:0 none;box-sizing:border-box;color:#1e1e1e}
+.sch_comm .btn_search{float:right;width:34px}
+.sch_comm .btn_search .ico_corp{width: 17px;height:17px;margin:12px 0 13px 17px;background-position:0 -10px}
+.sch_on .lab_sch{overflow:hidden;width:0;height:0;line-height:0;text-indent:-9999px} /* 입력창 활성화 */
+
+/* 페이징 */
+.paging_comm{overflow:hidden;position:relative;width:100%;padding-top:30px;text-align:center}
+.paging_comm .inner_paging{display:inline-block}
+.paging_comm .btn_paging{display:block;float:left;width:28px;height:28px;margin:0 3px;border:1px solid #e6e6e6;text-align:center}
+.paging_comm .btn_paging .ico_corp{width:12px;height:9px;margin:9px auto 0}
+.paging_comm .btn_paging:hover{border-color:#1e1e1e;background:#1e1e1e}
+.paging_comm .btn_fst .ico_corp{background-position:-20px 0}
+.paging_comm .btn_fst:hover .ico_corp{background-position:-20px -10px}/* 2017-12-07_v2 */
+.paging_comm .btn_prev{margin-right:4px}
+.paging_comm .btn_prev .ico_corp{width:6px;background-position:-40px 0}
+.paging_comm .btn_prev:hover .ico_corp{background-position:-40px -10px}
+.paging_comm .btn_next{margin-left:30px}
+.paging_comm .btn_next .ico_corp{width:6px;background-position:-50px 0}
+.paging_comm .btn_next:hover .ico_corp{background-position:-50px -10px}
+.paging_comm .btn_lst .ico_corp{background-position:-60px 0}
+.paging_comm .btn_lst:hover .ico_corp{background-position:-60px -10px}
+.paging_comm .link_page{float:left;margin-left:25px;font-size:14px;line-height:28px;color:#666}
+.paging_comm .link_page:first-child{margin-left:0}
+.paging_comm em.link_page{font-weight:bold;line-height:27px;color:#1e1e1e;text-decoration:underline}
+
+/* 버튼 */
+.wrap_btn{overflow:hidden;padding-top:15px}
+.wrap_btn .btn_move{float:left;width:98px;height:38px;margin-right:10px;border:1px solid #1e1e1e;font-size:14px;line-height:38px;color:#1e1e1e;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif;text-align:center;text-decoration:none}
+.wrap_btn .btn_move:hover{color:#fff;background-color:#1e1e1e}
+.wrap_btn .btn_list{float:right;width:100px;height:40px;font-size:14px;line-height:40px;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif;color:#fff;background-color:#4d4d4d;text-align:center;text-decoration:none}
+.wrap_btn .btn_list:hover{background-color:#1e1e1e}
+.btn_step{display:inline-block;height:38px;padding:0 20px;border:1px solid #1e1e1e;font-size:14px;line-height:39px;color:#1e1e1e;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif;text-align:center}
+.btn_step:hover{border:1px solid #1e1e1e;color:#fff;background-color:#1e1e1e;text-decoration:none}
+.wrap_terms .btn_step{margin:25px 8px 0 0}/* 2019-04-11 수정 */
+button.btn_step{height:40px}
+/*.btn_step + .btn_step{margin-left:8px} 2019-04-11 삭제 */
+.btn_step .ico_arr{width:6px;height:9px;margin:15px 0 0 32px;background-position:0 0} /* 화살표 */
+.btn_step:hover .ico_arr{background-position:-12px 0}
+.btn_with{padding-left:14px;padding-right:14px} /* btn_step 과 함께사용 */
+html:lang(en) .btn_center{margin:12px 0 0 0}/* 2018-04-26 추가 */
+
+/* 2019-03-25 추가 시작 */
+.box_account{overflow:hidden;position:relative;margin-top:80px;padding:30px 40px;background:#f4f4f4}
+.box_account .desc_account{padding:9px 250px 7px 0;color:#1e1e1e}
+.box_account .link_account{position:absolute;top:50%;right:40px;height:40px;margin-top:-20px;padding:0 25px;font-size:14px;line-height:40px;color:#fff;background:#4d4d4d;text-align:center;text-decoration:none}
+.box_account .link_account:hover{background:#1e1e1e}
+.box_account .ico_corp{width:9px;height:15px;margin:3px 3px 0;background-position:-70px -20px}
+/* 2019-03-25 추가 끝 */
+
+/* 약관 */
+.txt_article{display:block;padding-top:80px}
+.area_tit{float:left;width:300px}
+.area_cont{float:right;width:860px}
+.tit_policy{display:block;padding-top:55px;font-weight:bold;font-size:20px;line-height:26px;color:#1e1e1e}
+.tab_policy + .tit_policy{padding-top:96px}
+.tit_subject{display:block;padding-top:40px;line-height:28px;color:#1e1e1e}
+.tit_subject.fst{padding-top:53px}
+.tit_terms{display:block;padding:30px 0 0 21px;font-weight:normal;color:#1e1e1e;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif}
+.link_policy{color:#3c64e6}
+
+.list_1depth{padding-left:25px}
+.list_1depth li{padding-top:18px;line-height:26px}
+.list_1depth .txt_num{margin:0 12px 0 -25px}
+.list_1depth_type1{margin-top:25px;padding:24px 0 0 39px;border-top:1px solid #e6e6e6}
+.list_1depth_type1.fst{margin-top:0;padding-top:8px;border-top:0 none}
+.list_1depth_type1 li{font-size:14px;line-height:26px}
+.list_1depth_type1 li:before{display:inline-block;width:2px;height:2px;margin:12px 14px 0 -16px;vertical-align:top;background-color:#1e1e1e;content:''}
+.list_2depth{padding:9px 0 0 37px}
+.list_1depth .list_2depth{padding-left:16px}
+.list_2depth li{padding-top:0;font-size:14px;line-height:26px}
+.list_2depth li:before{display:inline-block;width:2px;height:2px;margin:12px 14px 0 -16px;vertical-align:top;background-color:#1e1e1e;content:''}
+.list_2depth_type1{padding:10px 0 0 22px}
+.list_2depth_type1 li{font-size:14px;line-height:26px}
+.list_2depth_type1 li:first-child .emph_g2{padding-top:0}
+.list_1depth .list_2depth_type1{padding-left:0}
+.list_1depth .list_2depth_type1 li{padding-top:0}
+.wrap_rights .list_1depth .list_2depth_type1 li{text-indent:-8px}
+.list_2depth_type2{padding:10px 0 0 40px}
+/* 2019-03-25 수정 및 추가 시작 */
+.list_2depth_type2 li{font-size:14px;line-height:26px}
+.list_2depth_type2 .txt_num{display:inline-block;min-width:15px;margin:0 4px 0 -19px;vertical-align:top}
+.list_1depth .list_2depth_type2{padding-left:19px}
+.list_1depth .list_2depth_type2 li{padding-top:0}
+.list_2depth_type3{padding:10px 0 0 19px}
+.list_2depth_type3 li{padding-top:0;font-size:14px;line-height:26px;list-style:decimal}
+/* //2019-03-25 수정 및 추가 끝 */
+
+/* 2020-06-17 운영정책 목차 추가 시작 */
+.wrap_oppolicy{overflow:hidden;margin-top:27px;padding:19px 0 21px;border:1px solid #1e1e1e}
+.list_oppolicy{padding:0 40px}
+.wrap_oppolicy + .wrap_operation{margin-top:60px}
+.wrap_oppolicy .list_oppolicy .link_oppolicy{line-height:34px;color:#1e1e1e;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif}
+.wrap_oppolicy .list_oppolicy .link_oppolicy:hover{font-weight:bold}
+/* //2020-06-17 운영정책 목차 추가 끝 */
+
+.tbl_comm{overflow:hidden;width:860px;margin-top:80px;border-top:2px solid #4d4d4d;word-break:normal} /* 2019-09-18 수정 */
+.tbl{width:100%;border-collapse:collapse;border-spacing:0;table-layout:fixed}
+.tbl th{border-left:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;font-weight:normal;font-size:14px}
+.tbl td{border-left:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;font-size:14px;line-height:26px;text-align:center}
+.tbl thead th{padding:15px 20px;color:#1e1e1e;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif}
+.tbl .inner_cell{padding:15px 20px 14px}
+.tbl .inner_cell .btn_step{margin:0}
+.tbl .fst{border-left:0 none}
+.tbl .ta_left{text-align:left}
+.tbl .ta_center{text-align:center}
+.tbl .ta_right{text-align:right}
+.tbl .va_top{vertical-align:top}
+.tbl .border_r{border-right:1px solid #e6e6e6}
+.tbl .link_txt{color:#1e1e1e;line-height:24px;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif} /* 테이블안에 링크 */
+.tbl .link_txt:hover{font-weight:bold}
+.tbl .data_none{padding:69px 0 72px;font-weight:bold;font-size:16px;color:#1e1e1e}
+.tbl_type2 th{border-left:0 none;text-align:center} /* tbl_type2 : 보더없는 테이블 */
+.tbl_type2 td{border-left:0 none}
+
+.terms_list{overflow:hidden}
+.terms_list .bundle_terms{float:left;margin-right:105px}/* 2019-04-11 수정 */
+/*.terms_list .bundle_terms:first-child{margin-left:0}2019-04-11 삭제 */
+.terms_list .bundle_terms:last-child{margin-right:0}/* 2019-04-11 추가 */
+html:lang(en) .terms_list2 .bundle_terms{float:none;margin-left:0} /* 2018-04-26 추가 */
+.tbl_terms{width:1160px;margin-top:26px}
+.tbl_terms td{border-left:1px solid #e6e6e6;text-align:left}
+.tbl_terms .inner_cell{font-size:14px;padding:26px 20px 23px}
+.tbl_terms .txt_rights{display:block;padding-top:5px;font-weight:bold;color:#1e1e1e}
+.tbl_terms .list_2depth{padding-left:16px}
+.tbl_terms .list_2depth.fst{padding-top:0}
+.tbl_terms .list_2depth li:before{display:inline-block;width:2px;height:2px;margin:10px 14px 0 -16px;background-color:#1e1e1e;vertical-align:top;content:''}
+.tbl_terms .list_2depth_type1 li{padding-top:0;font-size:14px;line-height:26px}
+
+.cont_policy .desc_g{padding-top:28px;line-height:26px;}
+.cont_policy .desc_service{padding-top:55px} /* 2018-07-24 추가 */
+.tit_terms + .desc_g{font-size:14px;padding:15px 0 0 20px}
+.wrap_terms .desc_policy{display:block;padding-top:60px}
+.wrap_terms .tit_group{display:block;padding-top:21px;font-weight:normal;color:#1e1e1e;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif} /* 2020-02-28 수정 */
+.wrap_terms .emph_group{display:block;font-size:14px;padding:14px 0 0 25px;color:#1e1e1e;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif}
+.wrap_terms .desc_group{display:block;padding-top:5px;font-size:14px;font-weight:normal;color:#1e1e1e} /* 2020-03-05 수정 */
+.wrap_terms .emph_g2{display:block;padding-top:8px;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif;color:#1e1e1e}
+.wrap_terms{margin:0 auto;margin-top:80px;border-top:2px solid #4d4d4d}/* 2019-04-11 수정 */
+.wrap_tab + .wrap_terms{margin-top:60px}
+.tit_policy + .wrap_terms{margin-top:60px}
+.wrap_terms .tit_subject + .desc_g{padding-top:18px}
+
+.policy_separate .tit_policy{padding-top:76px}
+.policy_separate .area_cont.fst > .tit_policy{padding-top:55px}
+.policy_separate .desc_g.fst{margin-top:90px;padding:0}
+.policy_separate .btn_list{top:30px}
+.policy_separate .tbl_comm{margin-top:25px}
+
+.tbl_private{width:1160px}
+.tbl_private .inner_cell{padding:24px 20px 23px} /* 2019-07-09 수정 */
+.list_private + .emph_g{display:block;padding-top:5px}
+
+.separate_search{overflow:hidden;padding-top:11px}
+.separate_search .sch_comm{float:right}
+/* 2018-07-24 추가 시작 */
+.offer_search{padding-top:55px}
+.offer_search .desc_g{float:left;width:600px;padding-top:0}
+.offer_search .sch_comm{padding-top:5px}
+/* 2018-07-24 추가 끝 */
+.tbl_delivery{width:1160px} /* 2018-07-24 */
+.tbl_delivery td{border-left:1px solid #e6e6e6;text-align:center;vertical-align:top}
+.tbl_delivery .inner_cell{font-size:14px}
+.tbl_delivery .txt_rights{display:block;padding-top:5px;color:#1e1e1e}
+.wrap_paging{position:relative}
+.wrap_paging .btn_list{position:absolute;bottom:0;right:0;width:100px;height:40px;font-size:14px;line-height:38px;color:#fff;background-color:#4d4d4d;text-align:center;text-decoration:none;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif}
+.wrap_paging .btn_list:hover{background-color:#1e1e1e}
+
+/* 이용약관 */
+.wrap_policy .tit_policy{margin-top:55px;border-top:1px solid #e1e1e1}
+.wrap_policy .tit_policy:first-child{margin-top:0;border-top:0 none}
+
+/* 2019-07-09 추가 시작 */
+/* 위치기반서비스 이용약관*/
+.tbl_current{width:100%}
+.tbl_current .inner_cell{padding:24px 20px 23px}
+/* 2019-07-09 추가 끝 */
+
+/* 개인정보처리방침 */
+.wrap_menu{overflow:hidden;margin-top:27px;padding:19px 0 21px;border:1px solid #1e1e1e}
+.wrap_menu .list_menu{float:left;width:33.33%;padding:0 40px;box-sizing:border-box}
+.wrap_menu .list_menu .link_menu{display:block;line-height:34px;color:#1e1e1e;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif} /*2020-07-07 display 변경*/
+.wrap_privacy{margin-top:60px}
+.wrap_privacy .tit_policy{margin-top:55px;border-top:1px solid #e6e6e6}
+.wrap_privacy .tit_policy:first-child{margin-top:0;border-top:0 none}
+
+/* 개인정보 제3자 제공 현황 */
+/* .policy_offer .separate_search{position:absolute;top:175px;right:0} 2018-07-24 삭제 */
+.tbl_offer{width:1160px}
+.tbl_offer td{text-align:left}
+/* .tbl .inner_cell{padding:20px} 2019-07-09 삭제 */
+.tbl_offer .fst{text-align:center}
+.tbl_product{width:1160px}/* 2018-07-31 추가 */
+.tbl_product td{text-align:center}/* 2018-07-31 추가 */
+.thumb_app{display:inline-block;width:50px;height:50px;margin-right:12px;border-radius:6px;vertical-align:middle}
+.thumb_app .img_thumb{display:block;width:50px;height:50px;border-radius:10px}
+
+/* 운영정책 */
+.wrap_operation .tit_policy{margin-top:55px;border-top:1px solid #e6e6e6}
+.wrap_operation .tit_policy.fst{margin-top:0;border-top:0 none}
+.list_txt{padding-top:30px}
+.list_txt li{line-height:26px}
+
+/* 권리침해신고안내 */
+.wrap_rights{margin-top:0px;border-top:none}
+.wrap_rights .tit_policy{margin-top:55px;border-top:1px solid #e6e6e6}
+.wrap_rights .tit_policy.fst{margin-top:0;border-top:0 none}
+.wrap_rights .rights_thumb{margin-top:15px;padding:60px 59px;border:1px solid #1e1e1e}
+.wrap_rights .desc_g{padding-top:25px}
+.rights_thumb .list_step{padding:57px 0 0 27px}
+.rights_thumb .list_step li{margin-top:10px;text-indent:-7px}
+.rights_thumb .list_step li:first-child{margin:0}
+.rights_thumb .ico_num1{width:20px;height:20px;margin:0 7px 0 -20px;background-position:0 -40px}
+.rights_thumb .ico_num2{width:20px;height:20px;margin:0 7px 0 -20px;background-position:-30px -40px}
+.rights_thumb .ico_num3{width:20px;height:20px;margin:0 7px 0 -20px;background-position:-60px -40px}
+
+/* 공지사항 */
+.wrap_cont{overflow:visible;position:relative;width:1160px;margin:0 auto;padding-top:20px;clear:both;*zoom:1}
+.wrap_cont:after{display:block;visibility:hidden;height:0;font-size:0;clear:both;content:''}
+.area_tit .tit_corp{display:block;padding:76px 40px 0 0;font-size:18px;line-height:30px;color:#1e1e1e;vertical-align:top}
+.tbl_public .txt_public{position:relative;display:inline-block;max-width:100%;padding-right:17px;vertical-align:top}
+.tbl_public .ico_new{position:absolute;top:5px;right:0;width:11px;height:11px;background-position:-40px -20px}
+.tbl_public .ta_left .inner_cell{padding-right:60px;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif}
+/* 뷰 */
+.board_view{overflow:hidden;padding:75px 0 60px;border-bottom:1px solid #e5e5e5;line-height:26px}
+.board_view + .wrap_btn{padding-top:20px}
+.view_body .news_thumb{display:block;width:860px;padding-bottom:40px}
+.view_body .txt_news{display:block;color:#1e1e1e;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif}
+
+/* 2018-04-26_v1 추가 시작 */
+/* 에러페이지 */
+.error_type{height:100%;background:#fff}
+.kakao_etc{width:1160px;margin:0 auto;padding:300px 0}
+.kakao_etc .tit_service{display:block;overflow:hidden;height:20px;margin-top:20px;background:url(//t1.kakaocdn.net/kakaocorp/pw/policy/logo_kakao.png) no-repeat 0 0;text-indent:-9999px}
+.kakao_etc .desc_etc{padding-top:75px;line-height:26px;color:#666} /* 2018-04-27 */
+.kakao_etc .desc_etc .txt_etc{display:block;padding-bottom:9px;font-size:18px;color:#1e1e1e} /* 2018-04-27 */
+.kakao_etc .btn_reset{display:block;width:140px;height:40px;margin-top:35px;border:1px solid #1e1e1e;line-height:40px;color:#1e1e1e;font-size:14px;font-family:'NotoSans Regular','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif;text-align:center;text-decoration:none;box-sizing:border-box} /* 2018-04-27 */
+.kakao_etc .btn_reset:hover{color:#fff;background-color:#1e1e1e}
+/* 2018-04-26_v1 추가 끝 */
+
+/* 2020-07-07 운영정책 추가 시작 -0708 -00715 -0722 */
+.wrap_tab .btn_tab_type1{right:0}
+.wrap_menu .list_submenu{padding-left:25px}
+.wrap_menu .list_submenu .link_menu{display:block;font-size:14px;line-height:26px}
+.wrap_menu .btn_summary{border:1px solid #1e1e1e;margin:30px 0 0 40px;padding:6px 14px;font-size:14px;line-height:26px;color:#1e1e1e}
+.wrap_menu .btn_summary:hover{background:#1e1e1e;color:#fff}
+.wrap_menu .list_menu>li+li{margin-top:8px}
+.wrap_menu_type1 .list_menu>li+li{margin-top:9px}
+.wrap_menu_type1 .list_menu> li >.link_menu{line-height:34px}
+.wrap_menu_type1 .list_menu_type1{padding-right:0}
+.list_menu> li:hover > .link_menu{color:#1e1e1e;font-weight:bold;text-decoration:underline}
+.list_submenu li:hover .link_menu{color:#1e1e1e;font-weight:bold;text-decoration:underline}
+.ico_terms{display:inline-block;margin-left:10px;background:url(//t1.kakaocdn.net/kakaocorp/pw/policy/rtn/ico_termbutton_200630.png) no-repeat;background-size:38px 45px;vertical-align:top}
+.btn_download .ico_download{background-position:0 0;width:17px;height:20px}
+.btn_print .ico_print{background-position:-20px 0;width:18px;height:20px}
+.btn_tab{position:absolute;top:90px;right:140px}
+.cont_policy .btn_tab button{font-size:14px;line-height:26px;padding:10px 0}
+.cont_policy .btn_tab button:hover{color:#1e1e1e}
+.btn_tab button:hover .ico_download{background-position:0 -25px}
+.btn_tab button:hover .ico_print{background-position:-20px -25px}
+.btn_tab .btn_download{margin-right:12px}
+.summary_layer .ico_summary{display:inline-block;width:23px;margin-right:7px;background:url(//t1.kakaocdn.net/kakaocorp/pw/policy/rtn/ico_summary_200701.png) no-repeat;background-size:23px 238px;vertical-align:top}
+.summary_layer .ico_summary01{background-position:0 0;width:23px;height:18px;margin-right:7px}
+.summary_layer .ico_summary02{background-position:0 -20px;height:21px}
+.summary_layer .ico_summary03{background-position:0 -45px;height:20px}
+.summary_layer .ico_summary04{background-position:0 -70px;height:23px}
+.summary_layer .ico_summary05{background-position:0 -95px;height:20px}
+.summary_layer .ico_summary06{background-position:0 -120px;height:20px}
+.summary_layer .ico_summary07{background-position:0 -145px;height:22px}
+.summary_layer .ico_summary08{background-position:0 -170px;height:20px}
+.summary_layer .ico_summary09{background-position:0 -195px;height:18px}
+.summary_layer .ico_summary10{background-position:0 -215px;height:22px}
+/* 팝업 */
+.layer_comm{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(17,17,17,0.6);z-index:100}
+.layer_comm.open_layer{display:block}
+.layer_comm .inner_layer{overflow:hidden;position:absolute;left:0;right:0;top:0;bottom:0;width:960px;height:1130px;margin:auto;background:#FFF}
+.layer_comm .layer_body{margin:0 60px}
+.layer_comm .layer_head{border-bottom:1px solid #e5e5e5}
+.layer_comm .layer_body > .tit_layer{padding-top:60px}
+.layer_comm .btn_close{position:absolute;right:0;left:0;bottom:60px;margin:auto; width:100px;height:40px;border:1px solid #1e1e1e;color:#1e1e1e;text-align:center;line-height:40px}
+.layer_comm .btn_close:hover{background:#1e1e1e;color:#fff;text-decoration:none}
+.layer_comm .tit_layer{display:block;padding:30px 0;font-weight:bold;font-size:20px;line-height:26px;color:#1e1e1e}
+.download_layer .inner_layer{width:760px}
+.summary_layer .info_layer_type1 .wrap_guide{max-height:418px}
+.summary_layer .wrap_guide{overflow-y:auto;padding:0 30px;max-height:390px;border:1px solid #d4d4d4}
+.wrap_guide strong{display:block;margin:30px 0 20px;color:#1e1e1e}
+.wrap_guide p:last-child{margin-bottom:30px}
+.cont_policy .summary_layer .tit_service{display:block;overflow:hidden;height:20px;margin:20px 60px;background:url(//t1.kakaocdn.net/kakaocorp/pw/policy/logo_kakao.png) no-repeat 0 0;text-indent:-9999px}
+.summary_layer .list_menu .link_menu{line-height:28px}
+.summary_layer .wrap_menu{margin:0 0 30px;padding:30px 15px;border:0 none;background:#f4f4f4}
+.summary_layer .list_menu{padding:0 15px}
+.summary_layer .link_menu:before{display:inline-block;margin:0 4px 0 -4px;width:2px;height:2px;background:#333;border-radius:1px;vertical-align:middle;content:''}
+.summary_layer .link_summary:hover{font-weight:bold}
+.summary_layer .tab_layer{overflow:hidden;height:50px;padding-bottom:30px;border-bottom:2px solid #4d4d4d}
+.summary_layer .tab_layer li{float:left;margin-right:10px;border:1px solid #d4d4d4}
+.summary_layer .tab_layer .layer_tab{display:block;width:165px;height:48px;line-height:48px;text-align:center}
+.summary_layer .tab_layer .on {background:#1e1e1e;border-color:#1e1e1e}
+.tab_layer .on .layer_tab {color:#fff;background-color:#1e1e1e;border:0 none;z-index:99}
+.tab_layer .layer_tab {color:#666;font-size:14px;line-height:20px}
+.cont_policy .download_layer .tit_service{display:block;overflow:hidden;height:20px;margin:20px 60px;background:url(//t1.kakaocdn.net/kakaocorp/pw/policy/logo_kakao.png) no-repeat 0 0;text-indent:-9999px}
+.cont_policy .download_layer .tit_layer{margin-top:30px; border-bottom:2px solid #4d4d4d}
+.list_download li{overflow:hidden;padding:11px 30px;border-bottom:1px solid #d4d4d4}
+.list_download .tit_download{float:left;margin-top:6px}
+.list_download .wrap_download{float:right}
+.download_layer .inner_layer{height:791px}
+.download_layer .link_download{float:left;width:81px;height:30px;margin-right:12px;font-size:14px;line-height:34px;border:1px solid #1e1e1e;text-align:center}
+.download_layer .link_download:hover{background:#1e1e1e;color:#fff;text-decoration:none}
+.download_layer .link_download:last-child{margin-right:0}
+.wrap_viewer{overflow:hidden;padding-bottom:11px;border-bottom:1px solid #d4d4d4}
+.wrap_viewer .link_download{width:156px}
+.wrap_viewer .tit_layer{margin-bottom:15px}
+/* 2020-07-01 운영정책 추가 끝 -0708 -0722*/
+/* 컨텐츠 드래그 컬러효과 */
+::-moz-selection{background:#ffee33}
+::selection{background:#ffee33}
+
+@media all and (max-width:1800px){ /* -0722 1360->1800*/
+    .link_top{right:18px}
+    /* 2020-07-01 운영정책 추가 시작 -0708  */
+    .summary_layer .inner_layer{height:900px}
+    .summary_layer .wrap_guide{max-height:176px}
+    .summary_layer .info_layer_type1 .wrap_guide{max-height:206px}
+    /* 2020-07-01 운영정책 추가 끝 -0708 */
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5){
+    .ico_corp{background-image:url(//t1.kakaocdn.net/kakaocorp/pw/policy/rtn/ico_corp_190326.png);-webkit-background-size:105px 60px;background-size:105px 60px}/* 2019-03-25 수정 */
+    .wrap_head .tit_service{background-image:url(//t1.kakaocdn.net/kakaocorp/pw/policy/rtn/logo_kakao.png);-webkit-background-size:66px 20px;background-size:66px 20px}
+    .cont_policy .layer_comm .tit_service{background-image:url(//t1.kakaocdn.net/kakaocorp/pw/policy/rtn/logo_kakao.png);-webkit-background-size:66px 20px;background-size:66px 20px}/* 2020-07-01 -0722 로고 추가 */
+}
+
+/* 뷰페이지 - 구데이터 마이그레이션시 오버이딩 css */
+.view_body p{
+    margin:0 !important;
+    font-size:16px !important;
+    line-height:26px !important;
+    font-family:'NotoSans Light','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif !important;
+    color:#666 !important;
+    text-align:left !important;
+    text-indent:0 !important
+}
+.view_body font{
+    color:#666 !important
+}
+.view_body b{
+    font-weight:normal !important
+}
+.view_body span{
+    font-size:16px !important;
+    font-family:'NotoSans Light','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','돋움',dotum, sans-serif !important
+}
+
+/* 2020-07-01 인쇄용 css(2차용) -0722 */
+@media print {
+    #kakaoWrap{min-width:100%}
+    #mArticle{width:860px;margin:0}
+    .tab_policy li{width:109px}
+    .tab_policy li:nth-child(2){width:164px}
+    .tab_policy li:nth-child(3){width:126px}
+    .tab_policy li:nth-child(6){width:126px}
+    .tab_policy li:last-child{width:109px}
+}
